@@ -36,25 +36,32 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build GUI
+      - name: Create ultiblocks folder
         run: |
           mkdir ultiblocks
           cd ultiblocks
+      - name: Clone repositories
+        run: |
           git clone https://github.com/UltiBlocks/scratch-gui --depth=1
           git clone https://github.com/UltiBlocks/scratch-vm --depth=1
           git clone https://github.com/UltiBlocks/scratch-blocks --depth=1
+      - name: Build scratch-blocks
+        run: |
           cd scratch-blocks
           npm ci
-          npm run prepublish
           cd ..
+      - name: Build scratch-vm
+        run: |
           cd scratch-vm
           npm ci
           cd ..
+      - name: Build scratch-gui
+        run: |
           cd scratch-gui
           npm ci
           npm link ../scratch-vm
           npm link ../scratch-blocks
-          npm build
+          npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
