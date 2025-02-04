@@ -38,8 +38,6 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build
         run: |
-          mkdir ultiblocks
-          cd ultiblocks
           echo "::group::Cloning repositories"
           git clone https://github.com/UltiBlocks/scratch-gui --depth=1
           git clone https://github.com/UltiBlocks/scratch-vm --depth=1
@@ -66,7 +64,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload build
-          path: 'build'
+          path: 'scratch-gui/build'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
