@@ -37,29 +37,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build
-        run: |
-          echo "::group::Cloning repositories"
-          git clone https://github.com/UltiBlocks/scratch-gui --depth=1
-          git clone https://github.com/UltiBlocks/scratch-vm --depth=1
-          git clone https://github.com/UltiBlocks/scratch-blocks --depth=1
-          echo "::endgroup::"
-          echo "::group::Build scratch-blocks"
-          cd scratch-blocks
-          npm ci
-          cd ..
-          echo "::endgroup::"
-          echo "::group::Build scratch-vm"
-          cd scratch-vm
-          npm ci
-          cd ..
-          echo "::endgroup::"
-          echo "::group::Build scratch-gui"
-          cd scratch-gui
-          npm ci
-          npm link ../scratch-vm
-          npm link ../scratch-blocks
-          npm run build
-          echo "::endgroup::"
+        run: bash build-ultiblocks.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -68,3 +46,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Delete Artifact
+        uses: GeekyEggo/delete-artifact@5.1.0
+        with:
+          name: github-pages
