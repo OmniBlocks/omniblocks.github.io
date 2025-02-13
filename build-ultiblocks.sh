@@ -1,22 +1,10 @@
-echo "::group::Cloning repositories"
+echo "::group::Cloning repository"
 git clone https://github.com/UltiBlocks/scratch-gui --depth=1
-git clone https://github.com/UltiBlocks/scratch-vm --depth=1
-git clone https://github.com/UltiBlocks/scratch-blocks --depth=1
 echo "::endgroup::"
-echo "::group::Build scratch-blocks"
-cd scratch-blocks
-npm ci
-cd ..
-echo "::endgroup::"
-echo "::group::Build scratch-vm"
-cd scratch-vm
-npm ci
-cd ..
-echo "::endgroup::"
-echo "::group::Build scratch-gui"
+echo "::group::Install scratch-gui"
 cd scratch-gui
 npm ci
-npm link ../scratch-vm
-npm link ../scratch-blocks
+echo "::endgroup::"
+echo "::group::Build scratch-gui"
 npm run build
 echo "::endgroup::"
