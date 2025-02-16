@@ -1,10 +1,11 @@
 echo "::group::Cloning repositories"
-git clone https://github.com/UltiBlocks/scratch-gui --depth=1
-git clone https://github.com/UltiBlocks/scratch-vm --depth=1
-git clone https://github.com/UltiBlocks/scratch-blocks --depth=1
+git clone https://github.com/AmpM0d/scratch-gui --depth=1
+git clone https://github.com/AmpM0d/scratch-vm --depth=1
+git clone https://github.com/AmpM0d/scratch-blocks --depth=1
 echo "::endgroup::"
 echo "::group::Build scratch-blocks"
 cd scratch-blocks
+git branch developBuilds
 npm ci
 cd ..
 echo "::endgroup::"
