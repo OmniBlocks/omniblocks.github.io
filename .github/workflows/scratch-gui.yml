@@ -2,7 +2,7 @@
 name: Build the OmniBlocks Online Editor
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes targeting the default branch lol
   push:
     branches: ["main"]
 
