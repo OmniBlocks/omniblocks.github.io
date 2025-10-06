@@ -6,10 +6,11 @@ echo "::endgroup::"
 
 echo "::group::Fetching version from scratch-gui"
 cd scratch-gui
-# Fetch tags since --depth=1 doesn't include them
-git fetch --tags --depth=1
-if git describe --tags --abbrev=0 >/dev/null 2>&1; then
-    export APP_VERSION=$(git describe --tags --abbrev=0)
+# Fetch all tags
+git fetch --tags --unshallow 2>/dev/null || git fetch --tags
+# Get the latest tag by version sort (not by reachability)
+if git tag -l 'v*' >/dev/null 2>&1; then
+    export APP_VERSION=$(git tag -l 'v*' | sort -V | tail -n1)
 else
     export APP_VERSION="v0.5.8-alpha"  # fallback
 fi
