@@ -35,5 +35,7 @@ cd scratch-gui
 npm ci
 npm link ../scratch-vm
 npm link ../scratch-blocks
-npm run build
+echo "🚀 Building with APP_VERSION=$APP_VERSION"
+# Explicitly pass APP_VERSION to npm
+APP_VERSION="$APP_VERSION" npm run build
 echo "::endgroup::"
