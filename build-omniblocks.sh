@@ -38,5 +38,5 @@ npm link ../scratch-vm
 npm link ../scratch-blocks
 echo "🚀 Building with APP_VERSION=$APP_VERSION"
 # Explicitly pass APP_VERSION to npm
-APP_VERSION="$APP_VERSION" npm run build
+APP_VERSION="$APP_VERSION" NODE_ENV=production npm run build
 echo "::endgroup::"
