@@ -30,5 +30,5 @@ npm ci
 npm link ../scratch-blocks
 echo "🚀 Building with APP_VERSION=$APP_VERSION"
 # Explicitly pass APP_VERSION to npm
-APP_VERSION="$APP_VERSION" NODE_ENV=production npm run build
+ROOT=/ NODE_ENV=production npm run build
 echo "::endgroup::"
