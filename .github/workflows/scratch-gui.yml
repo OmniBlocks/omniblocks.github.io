@@ -39,6 +39,7 @@ jobs:
           # Upload build
           path: 'omniblocks.github.io/content/blocks'
   deploy:
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -51,6 +52,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          name: github-pages   # add this line
       - name: Delete Artifact
         uses: GeekyEggo/delete-artifact@v5.1.0
         with:
