@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload build
-          path: 'scratch-gui/build'
+          path: 'omniblocks.github.io/content/blocks'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
