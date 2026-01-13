@@ -31,6 +31,11 @@ npm link ../scratch-blocks
 echo "🚀 Building with APP_VERSION=$APP_VERSION"
 # Explicitly pass APP_VERSION to npm
 ROOT=/ NODE_ENV=production npm run build
+
+echo "::endgroup::"
+
+echo "::group::Build website"
 mkdir ../omniblocks.github.io/content
+cp ../omniblocks.github.io/*.html ../omniblocks.github.io/content/
 mv ./build ../omniblocks.github.io/content/blocks
 echo "::endgroup::"
