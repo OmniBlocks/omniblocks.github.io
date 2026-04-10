@@ -1,5 +1,6 @@
 echo "::group::Cloning repository"
 git clone https://github.com/OmniBlocks/monorepo --depth=1
+cd monorepo
 echo "::endgroup::"
 
 echo "::group::Building"
