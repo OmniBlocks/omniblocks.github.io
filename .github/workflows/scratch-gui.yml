@@ -36,6 +36,18 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        # 1. Install pnpm first
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      # 2. Set up Node with pnpm caching
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'pnpm'
       - name: Build
         run: bash build-omniblocks.sh
       - name: Upload artifact
