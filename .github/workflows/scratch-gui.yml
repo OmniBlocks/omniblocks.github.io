@@ -47,9 +47,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'pnpm'
       - name: Build
-        run: bash build-omniblocks.sh
+        run: bash ./build-omniblocks.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
