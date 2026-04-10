@@ -4,7 +4,7 @@ cd monorepo
 echo "::endgroup::"
 
 echo "::group::Building"
-pnpm i
+pnpm i --shamefully-hoist
 cd scratch-gui
 echo "🚀 Building with APP_VERSION=$APP_VERSION"
 # Explicitly pass APP_VERSION to npm
