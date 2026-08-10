@@ -45,7 +45,7 @@ jobs:
         with:
           version: latest
       - name: Build
-        run: pnpm install --lockfile=false && bash ./build-omniblocks.sh
+        run: bash ./build-omniblocks.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
