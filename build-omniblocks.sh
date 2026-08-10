@@ -7,7 +7,7 @@ echo "::endgroup::"
  
 echo "::group::Building"
 echo "::group::Installing dependencies"
-pnpm i --shamefully-hoist
+pnpm i --shamefully-hoist 
 echo "::endgroup::"
 
 echo "::group::Building editor"
