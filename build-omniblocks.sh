@@ -7,7 +7,7 @@ echo "::endgroup::"
  
 echo "::group::Building"
 echo "::group::Installing dependencies"
-pnpm i --shamefully-hoist --no-frozen-lockfile
+pnpm i --shamefully-hoist --no-frozen-lockfile 
 echo "::endgroup::"
 
 echo "::group::Building editor"
