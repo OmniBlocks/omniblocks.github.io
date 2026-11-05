@@ -4,7 +4,7 @@ echo "::group::Cloning repository"
 git clone https://github.com/OmniBlocks/monorepo --depth=1
 cd monorepo
 echo "::endgroup::"
-echo "::Checking out main branch"
+echo "::group::Checking out main branch"
 git checkout main
 echo "::endgroup::"
  
@@ -13,15 +13,8 @@ echo "::group::Installing dependencies"
 pnpm i --shamefully-hoist --no-frozen-lockfile 
 echo "::endgroup::"
 
-echo "::group::Building editor"
+echo "::group::Building editor and extensions gallery"
 ROOT=/ NODE_ENV=production pnpm build
-cd ..
-echo "::endgroup::"
-
-echo "::group::Building extensions gallery"
-cd extensions
-pnpm build
-cd ..
 echo "::endgroup::"
 
 echo "::group::Adding gallery to Pages artifact"
