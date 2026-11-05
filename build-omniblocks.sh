@@ -4,6 +4,9 @@ echo "::group::Cloning repository"
 git clone https://github.com/OmniBlocks/monorepo --depth=1
 cd monorepo
 echo "::endgroup::"
+echo "::Checking out main branch"
+git checkout main
+echo "::endgroup::"
  
 echo "::group::Building"
 echo "::group::Installing dependencies"
@@ -11,7 +14,6 @@ pnpm i --shamefully-hoist --no-frozen-lockfile
 echo "::endgroup::"
 
 echo "::group::Building editor"
-cd scratch-gui
 ROOT=/ NODE_ENV=production pnpm build
 cd ..
 echo "::endgroup::"
