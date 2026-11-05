@@ -1,5 +1,7 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Build the OmniBlocks Online Editor
+env:
+  FORCE_COLOR: 1
 
 on:
   # Runs on pushes targeting the default branch lol
